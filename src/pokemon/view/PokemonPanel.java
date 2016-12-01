@@ -14,7 +14,7 @@ public class PokemonPanel extends JPanel
 	private SpringLayout baseLayout;
 	private JButton updateButton;
 	private JComboBox pokedexSelector;
-	private JLabel pokemonLabel;
+	private JLabel pokemonPicture;
 	private JLabel healthLabel;
 	private JLabel combatLabel;
 	private JLabel speedLabel;
@@ -47,7 +47,7 @@ public class PokemonPanel extends JPanel
 		this.speedLabel = new JLabel("Speed Rate:");
 		this.numberLabel = new JLabel("Pokemon Number:");
 		this.nameLabel = new JLabel("Pokemon Name:");
-		this.pokemonLabel = new JLabel("Current Pokemon:", pokemonIcon, SwingConstants.CENTER);
+		this.pokemonPicture = new JLabel("Current Pokemon:", pokemonIcon, SwingConstants.CENTER);
 		
 		setupPanel();
 		setupLayout();
@@ -57,6 +57,8 @@ public class PokemonPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
+		pokemonPicture.setVerticalTextPosition(JLabel.BOTTOM);
+		pokemonPicture.setHorizontalTextPosition(JLabel.CENTER);
 		this.setPreferredSize(new Dimension(900, 600));
 		numberField.setEditable(false);
 		advancedArea.setEditable(false);
@@ -77,7 +79,7 @@ public class PokemonPanel extends JPanel
 		this.add(speedLabel);
 		this.add(numberLabel);
 		this.add(nameLabel);
-		this.add(pokemonLabel);
+		this.add(pokemonPicture);
 		
 	}
 	
@@ -107,12 +109,12 @@ public class PokemonPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, numberLabel, 0, SpringLayout.WEST, combatLabel);
 		baseLayout.putConstraint(SpringLayout.WEST, nameLabel, 0, SpringLayout.WEST, nameField);
 		baseLayout.putConstraint(SpringLayout.SOUTH, nameLabel, -6, SpringLayout.NORTH, nameField);
-		baseLayout.putConstraint(SpringLayout.WEST, pokemonLabel, 58, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, advancedArea, 358, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, advancedArea, 0, SpringLayout.WEST, nameField);
 		baseLayout.putConstraint(SpringLayout.WEST, advancedLabel, 0, SpringLayout.WEST, nameField);
 		baseLayout.putConstraint(SpringLayout.SOUTH, advancedLabel, -6, SpringLayout.NORTH, advancedArea);
-		baseLayout.putConstraint(SpringLayout.SOUTH, pokemonLabel, -248, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, pokemonPicture, -185, SpringLayout.NORTH, advancedArea);
+		baseLayout.putConstraint(SpringLayout.WEST, pokemonPicture, 34, SpringLayout.WEST, this);
 		
 	}
 	

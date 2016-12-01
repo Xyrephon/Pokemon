@@ -12,6 +12,7 @@
     <panel_attributes>/Pokemon/
 --
 - hitPoints : int
+- number : int
 - attackPoints : int
 - speed : double
 - name : String
