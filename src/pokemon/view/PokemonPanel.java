@@ -5,8 +5,9 @@ import javax.swing.*;
 import pokemon.controller.PokemonController;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Dimension;
 
-public class PokemonPanel
+public class PokemonPanel extends JPanel
 {
 	private PokemonController baseController;
 	private SpringLayout baseLayout;
@@ -53,6 +54,28 @@ public class PokemonPanel
 	
 	private void setupPanel()
 	{
+		this.setLayout(baseLayout);
+		this.setPreferredSize(new Dimension(900, 600));
+		numberField.setEditable(false);
+		advancedArea.setEditable(false);
+		advancedArea.setWrapStyleWord(true);
+		advancedArea.setLineWrap(true);
+		this.setBackground(Color.PINK);
+		this.add(updateButton);
+		this.add(nameField);
+		this.add(combatField);
+		this.add(healthField);
+		this.add(speedField);
+		this.add(numberField);
+		this.add(advancedArea);
+		this.add(pokedexSelector);
+		this.add(advancedLabel);
+		this.add(combatLabel);
+		this.add(healthLabel);
+		this.add(speedLabel);
+		this.add(numberLabel);
+		this.add(nameLabel);
+		this.add(pokemonLabel);
 		
 	}
 	
@@ -63,6 +86,13 @@ public class PokemonPanel
 	
 	private void setupListeners()
 	{
+		updateButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
 		
 	}
 	
