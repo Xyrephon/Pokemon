@@ -1,6 +1,8 @@
 package pokemon.model;
 
-public class Flying
+public interface Flying
 {
 
+	public int fly();
+	public int aeroBlast();
 }

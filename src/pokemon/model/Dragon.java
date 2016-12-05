@@ -1,6 +1,7 @@
 package pokemon.model;
 
-public class Dragon
+public interface Dragon
 {
-
+	public int dragonBreath();
+	public int dragonTail();
 }

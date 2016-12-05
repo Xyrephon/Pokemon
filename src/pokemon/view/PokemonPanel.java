@@ -54,6 +54,34 @@ public class PokemonPanel extends JPanel
 		setupListeners();
 	}
 	
+	private void changeColorBasedOnData(String data)
+	{
+		if (data.contains("Dragon"))
+		{
+			this.setBackground(Color.DARK_GRAY);
+		}
+		else if (data.contains("Fire"))
+		{
+			this.setBackground(Color.RED);
+		}
+		else if (data.contains("Flying"))
+		{
+			this.setBackground(Color.CYAN);
+		}
+		else if (data.contains("Fairy"))
+		{
+			this.setBackground(Color.PINK);
+		}
+		else if (data.contains("Ground"))
+		{
+			this.setBackground(Color.LIGHT_GRAY);
+		}
+		else if (data.contains("Rock"))
+		{
+			this.setBackground(Color.GRAY);
+		}
+	}
+	
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
@@ -120,6 +148,22 @@ public class PokemonPanel extends JPanel
 	
 	private void setupListeners()
 	{
+		pokedexSelector.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				int selected = pokedexSelector.getSelectedIndex();
+				nameField.setText(baseController.getPokedex().get(selected).getName());
+				numberField.setText(baseController.getPokedex().get(selected).getNumber() + "");
+				combatField.setText(baseController.getPokedex().get(selected).getAttackPoints() + "");
+				speedField.setText(baseController.getPokedex().get(selected).getSpeed() + "");
+				healthField.setText(baseController.getPokedex().get(selected).getHitPoints() + "");
+				advancedArea.setText(baseController.getPokedex().get(selected).getPokemonInformation() + "\n" + baseController.getPokedex().get(selected).getPokemonTypes());
+				changeColorBasedOnData(baseController.getPokedex().get(selected).getPokemonTypes());
+				changeImageDisplay(baseController.getPokedex().get(selected).getClass().getSimpleName());
+			}
+		});
+		
 		updateButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
