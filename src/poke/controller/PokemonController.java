@@ -1,12 +1,13 @@
-package pokemon.controller;
+package poke.controller;
 
 import java.util.ArrayList;
-import pokemon.view.PokemonFrame;
-import pokemon.model.*;
+
+import poke.model.*;
+import poke.view.PokemonFrame;
 
 public class PokemonController
 {
-	private PokemonFrame appFrame;
+	private PokemonFrame baseFrame;
 	private ArrayList<Pokemon> pokedex;
 	
 	public PokemonController()
@@ -14,7 +15,7 @@ public class PokemonController
 		pokedex = new ArrayList<Pokemon>();
 		buildPokedex();
 		
-		appFrame = new PokemonFrame(this);
+		baseFrame = new PokemonFrame(this);
 	}
 
 	public void start()
@@ -25,6 +26,10 @@ public class PokemonController
 	private void buildPokedex()
 	{
 		pokedex.add(new Charizard());
+		pokedex.add(new Geodude());
+		pokedex.add(new Onyx());
+		pokedex.add(new Rayquaza());
+		pokedex.add(new Clefairy());
 	}
 	
 	public String[] buildPokedexText()
@@ -47,9 +52,9 @@ public class PokemonController
 		current.setHitPoints(health);
 	}
 	
-	public PokemonFrame getAppFrame()
+	public PokemonFrame getBaseFrame()
 	{
-		return appFrame;
+		return baseFrame;
 	}
 
 	public ArrayList<Pokemon> getPokedex()

@@ -1,8 +1,10 @@
-package pokemon.view;
+package poke.view;
 
 import java.awt.Color;
 import javax.swing.*;
-import pokemon.controller.PokemonController;
+
+import poke.controller.PokemonController;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Dimension;
@@ -32,7 +34,7 @@ public class PokemonPanel extends JPanel
 	{
 		this.baseController = baseController;
 		this.baseLayout = new SpringLayout();
-		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokemon/view/images/Pokeball.png"));
+		this.pokemonIcon = new ImageIcon(getClass().getResource("/poke/view/images/Pokeball.png"));
 		this.updateButton = new JButton("Update the stats!");
 		this.nameField = new JTextField(25);
 		this.combatField = new JTextField(5);
@@ -80,6 +82,23 @@ public class PokemonPanel extends JPanel
 		{
 			this.setBackground(Color.GRAY);
 		}
+	}
+	
+	private void changeImageDisplay(String name)
+	{
+		String path = "/poke/view/images/";
+		String defaultName = "ultraball";
+		String extension = ".png";
+		try
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + name + extension));
+		}
+		catch (NullPointerException missingFile)
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
+		}
+		pokemonPicture.setIcon(pokemonIcon);
+		repaint();
 	}
 	
 	private void setupPanel()

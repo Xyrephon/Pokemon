@@ -1,14 +1,21 @@
-package pokemon.model;
+package poke.model;
 
 public class Charizard extends Pokemon implements Fire, Flying
 {
+	public int fly()
+	{
+		return 0;
+	}
+	
 	public Charizard()
 	{
 		super("Charizard", 6);
 	}
 
-	public int fly()
-	{
-		
+	public int aeroBlast() {
+	
+		return 0;
 	}
+
+
 }

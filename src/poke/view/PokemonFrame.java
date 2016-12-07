@@ -1,7 +1,9 @@
-package pokemon.view;
+package poke.view;
 
 import javax.swing.JFrame;
-import pokemon.controller.PokemonController;
+
+import poke.controller.PokemonController;
+
 import java.awt.Dimension;
 
 public class PokemonFrame extends JFrame
