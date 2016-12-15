@@ -16,6 +16,15 @@ public class Charizard extends Pokemon implements Fire, Flying
 	
 		return 0;
 	}
-
+	
+	public int ember()
+	{
+		return 0;
+	}
+	
+	public int flameThrower()
+	{
+		return 0;
+	}
 
 }
