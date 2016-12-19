@@ -30,6 +30,7 @@ public class PokemonController
 		pokedex.add(new Onyx());
 		pokedex.add(new Rayquaza());
 		pokedex.add(new Clefairy());
+		pokedex.add( new Charizard());
 	}
 	
 	public String[] buildPokedexText()

@@ -1,6 +1,8 @@
 package poke.model;
 
-public class Ground
+public interface Ground
 {
 
+	public int bulldoze();
+	public int earthquake();
 }

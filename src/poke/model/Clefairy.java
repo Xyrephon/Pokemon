@@ -5,7 +5,7 @@ public class Clefairy extends Pokemon implements Fairy
 	
 	public Clefairy()
 	{
-		super(Clefairy, number)
+		super("Clefairy", 35);
 	}
 	public int babyDollEyes()
 	{
