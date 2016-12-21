@@ -190,7 +190,7 @@ public class PokemonPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				int selected = pokedexSelector.getSelectedIndex();
-				if(checkParseInteger(combatField.getText()) && checkParseInteger(healthField.getText()) && checkParseDouble(speedField.getText()))
+				if(checkValidName(nameField.getText()) && checkParseInteger(combatField.getText()) && checkParseInteger(healthField.getText()) && checkParseDouble(speedField.getText()))
 				{
 				baseController.updateSelected(selected, nameField.getText(), Integer.parseInt(combatField.getText()), Integer.parseInt(healthField.getText()), Double.parseDouble(speedField.getText()) );
 				}		
@@ -200,6 +200,17 @@ public class PokemonPanel extends JPanel
 		});
 		
 		
+	}
+	
+	private boolean checkValidName(String current)
+	{
+		boolean validName = true;
+		if(current.length() < 3)
+		{
+			validName = false;
+		}
+		
+		return validName;
 	}
 	
 	private boolean checkParseInteger(String current)
