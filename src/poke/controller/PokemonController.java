@@ -26,11 +26,11 @@ public class PokemonController
 	private void buildPokedex()
 	{
 		pokedex.add(new Charizard());
+		pokedex.add(new Clefairy());
 		pokedex.add(new Geodude());
 		pokedex.add(new Onyx());
 		pokedex.add(new Rayquaza());
-		pokedex.add(new Clefairy());
-		pokedex.add( new Charizard());
+		pokedex.add( new Charizard("Derp"));
 	}
 	
 	public String[] buildPokedexText()

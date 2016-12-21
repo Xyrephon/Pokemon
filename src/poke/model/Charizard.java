@@ -6,6 +6,11 @@ public class Charizard extends Pokemon implements Fire, Flying
 	{
 		super("Charizard", 6);
 	}
+	
+	public Charizard(String name)
+	{
+		super(name, 6);
+	}
 
 	public int fly()
 	{

@@ -4,7 +4,9 @@ import java.awt.Color;
 import javax.swing.*;
 
 import poke.controller.PokemonController;
+import poke.model.Pokemon;
 
+import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Dimension;
@@ -42,7 +44,7 @@ public class PokemonPanel extends JPanel
 		this.speedField = new JTextField(5);
 		this.numberField = new JTextField(5);
 		this.advancedArea = new JTextArea (10, 25);
-		this.pokedexSelector = new JComboBox(new String [] {"Pokemon","Charizard", "Clefairy","Geodude","Onyx","Rayquaza"});
+		this.pokedexSelector = new JComboBox(baseController.buildPokedexText());
 		this.advancedLabel = new JLabel("Advanced information");
 		this.combatLabel = new JLabel("Combat Points:");
 		this.healthLabel = new JLabel("Health Points:");
@@ -187,10 +189,50 @@ public class PokemonPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				
+				int selected = pokedexSelector.getSelectedIndex();
+				if(checkParseInteger(combatField.getText()) && checkParseInteger(healthField.getText()) && checkParseDouble(speedField.getText()))
+				{
+				baseController.updateSelected(selected, nameField.getText(), Integer.parseInt(combatField.getText()), Integer.parseInt(healthField.getText()), Double.parseDouble(speedField.getText()) );
+				}		
+					
+						
 			}
 		});
 		
+		
+	}
+	
+	private boolean checkParseInteger(String current)
+	{
+		boolean isParseable = false;
+		
+		try
+		{
+			Integer.parseInt(current);
+			isParseable = true;
+		}
+		catch(NumberFormatException currentError)
+		{
+			JOptionPane.showMessageDialog(this, "Please type an integer where an integer is required!");
+		}
+		
+		return isParseable;
+	}
+	
+	private boolean checkParseDouble(String current)
+	{
+		boolean isParseable = false;
+		try
+		{
+			Double.parseDouble(current);
+			isParseable = true;
+		}
+		catch(NumberFormatException currentError)
+		{
+			JOptionPane.showMessageDialog(this, "Please type a double where a double is required!");
+		}
+		
+		return isParseable;
 	}
 	
 }
