@@ -35,6 +35,11 @@ public abstract class Pokemon
 		return pokemonTypes;
 	}
 	
+	public String toString()
+	{
+		return name;
+	}
+	
 	public String getPokemonInformation()
 	{
 		String pokemonInfo = "This pokemon is a: " + this.getClass().getSimpleName();
